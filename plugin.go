@@ -7,6 +7,8 @@ import (
 	"net/http"
 	"bytes"
 	"encoding/json"
+	"crypto/tls"
+	"encoding/base64"
 )
 
 type Plugin struct {
@@ -31,8 +33,7 @@ func (p *Plugin) Exec() error {
 		return errors.New("Eek: Must have url, user-name, secret")
 	}
 
-	client := http.DefaultClient
-
+// "Basic": base64encode(user:password)
 	object := PostObject{
 		StorageVMKey: p.StorageVmKey,
 		VolumeKey:    p.VolumeKey,
@@ -40,11 +41,27 @@ func (p *Plugin) Exec() error {
 	}
 	b := new(bytes.Buffer)
 	json.NewEncoder(b).Encode(object)
-	_, err := client.Post(p.URL, "applications/json", b)
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	client := &http.Client{
+		Transport: tr,
+	}
+	req, err := http.NewRequest("POST", p.URL, b)
+	req.Header.Add("Content-Type", "application/json")
+	req.Header.Add("Authorization", "Basic "+basicAuth(p.UserName, p.UserPassword))
+
+	//response , err := client.Post(p.URL, "applications/json", b)
+	response, err := client.Do(req)
 	if err != nil {
 		return err
 	}
+	fmt.Printf("%+v\n", response);
 
 	return nil
 
+}
+func basicAuth(username, password string) string {
+	auth := username + ":" + password
+	return base64.StdEncoding.EncodeToString([]byte(auth))
 }
