@@ -6,7 +6,7 @@
 [![Go Report](https://goreportcard.com/badge/github.com/josmo/drone-netapp-snapshot)](https://goreportcard.com/report/github.com/josmo/drone-netapp-snapshot)
 [![](https://images.microbadger.com/badges/image/peloton/drone-netapp-snapshot.svg)](https://microbadger.com/images/peloton/drone-netapp-snapshot "Get your own image badge on microbadger.com")
 
-Drone plugin to snapshot a datastore before deployemtn. For the usage information and a listing of the available options please take a look at [the docs](DOCS.md).
+Drone plugin to snapshot a datastore before deployment. For the usage information and a listing of the available options please take a look at [the docs](DOCS.md).
 
 ## Binary
 
@@ -23,14 +23,14 @@ drone exec
 Build and deploy from your current working directory:
 
 ```
-docker run --rm                          \
-  -e PLUGIN_URL=<source>                 \
-  -e PLUGIN_USERNAME=<user_name>     \
-  -e PLUGIN_USER_NAME=<user_password>  \
-  -e PLUGIN_STORAGE_VM_KEY=<vm_key>            \  
-  -e PLUGIN_VOLUME_KEY=<volume_key>         \
+docker run --rm                       \
+  -e PLUGIN_URL=<source>              \
+  -e PLUGIN_USERNAME=<user_name>      \
+  -e PLUGIN_USER_NAME=<user_password> \
+  -e PLUGIN_STORAGE_VM_KEY=<vm_key>   \
+  -e PLUGIN_VOLUME_KEY=<volume_key>   \
   -e PLUGIN_NAME_PREFIX=<name_prefix>
-  -v $(pwd):$(pwd)                       \
-  -w $(pwd)                              \
+  -v $(pwd):$(pwd)                    \
+  -w $(pwd)                           \
   peloton/drone-netapp-snapshot
 ```
