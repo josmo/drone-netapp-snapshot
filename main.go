@@ -4,34 +4,27 @@ import (
         "github.com/codegangsta/cli"
         "log"
         "os"
+        "fmt"
 )
 
 //need a volume-key and volume-vm-key
 
 
-type Rancher struct {
-        Url            string `json:"url"`
-        UserName      string `json:"user_name"`
-        UserPassword      string `json:"user_password"`
-        StorageVMKey      string `json:"storage_vm_key"`
-        VolumeKey         string `json:"volume_key"`
-        NamePrefix        string `json:"name_prefix"`
-        //VolumeName        string `json:"volume_name"`
-}
 
-var version string // build number set at compile-time
+
+var build string // build number set at compile-time
 
 func main() {
         app := cli.NewApp()
         app.Name = "netapp  snapshot"
         app.Usage = "netapp snapshot"
         app.Action = run
-        app.Version = version
+        app.Version = fmt.Sprintf("1.0.0+%s", build)
         app.Flags = []cli.Flag{
 
                 cli.StringFlag{
                         Name:   "url",
-                        Usage:  "url to the rancher api",
+                        Usage:  "url to the netapp api",
                         EnvVar: "PLUGIN_URL",
                 },
                 cli.StringFlag{
