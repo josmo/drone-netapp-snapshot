@@ -65,7 +65,7 @@ pipeline:
     username: josmo
     repo: peloton/drone-netapp-snapshot
     auto_tag: true
-    auto_tag_prefix: linux-arm64
+    auto_tag_suffix: linux-arm64
     secrets: [ docker_password ]
     dockerfile: Dockerfile.arm64
     when:
@@ -77,7 +77,7 @@ pipeline:
     username: josmo
     repo: peloton/drone-netapp-snapshot
     auto_tag: true
-    auto_tag_prefix: linux-arm
+    auto_tag_suffix: linux-arm
     secrets: [ docker_password ]
     dockerfile: Dockerfile.arm
     when:
