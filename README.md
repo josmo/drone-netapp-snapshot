@@ -1,7 +1,6 @@
 # drone-netapp-snapshot
 
 [![Build Status](https://drone.seattleslow.com/api/badges/josmo/drone-netapp-snapshot/status.svg)](https://drone.seattleslow.com/josmo/drone-netapp-snapshot)
-[![Join the chat at https://gitter.im/drone/drone](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/drone/drone)
 [![Go Doc](https://godoc.org/github.com/josmo/drone-netapp-snapshot?status.svg)](http://godoc.org/github.com/josmo/drone-netapp-snapshot)
 [![Go Report](https://goreportcard.com/badge/github.com/josmo/drone-netapp-snapshot)](https://goreportcard.com/report/github.com/josmo/drone-netapp-snapshot)
 [![](https://images.microbadger.com/badges/image/peloton/drone-netapp-snapshot.svg)](https://microbadger.com/images/peloton/drone-netapp-snapshot "Get your own image badge on microbadger.com")
