@@ -1,14 +1,14 @@
 package main
 
 import (
+	"bytes"
+	"crypto/tls"
+	"encoding/base64"
+	"encoding/json"
 	"errors"
 	"fmt"
 	log "github.com/Sirupsen/logrus"
 	"net/http"
-	"bytes"
-	"encoding/json"
-	"crypto/tls"
-	"encoding/base64"
 )
 
 type Plugin struct {
@@ -33,7 +33,7 @@ func (p *Plugin) Exec() error {
 		return errors.New("Eek: Must have url, user-name, secret")
 	}
 
-// "Basic": base64encode(user:password)
+	// "Basic": base64encode(user:password)
 	object := PostObject{
 		StorageVMKey: p.StorageVmKey,
 		VolumeKey:    p.VolumeKey,
@@ -56,7 +56,7 @@ func (p *Plugin) Exec() error {
 	if err != nil {
 		return err
 	}
-	fmt.Printf("%+v\n", response);
+	fmt.Printf("%+v\n", response)
 
 	return nil
 
