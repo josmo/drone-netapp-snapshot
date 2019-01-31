@@ -1,6 +1,6 @@
 # drone-netapp-snapshot
 
-[![Build Status](https://drone.seattleslow.com/api/badges/josmo/drone-netapp-snapshot/status.svg)](https://drone.seattleslow.com/josmo/drone-netapp-snapshot)
+[![Build Status](https://cloud.drone.io/api/badges/josmo/drone-netapp-snapshot/status.svg)](https://cloud.drone.io/josmo/drone-netapp-snapshot)
 [![Go Doc](https://godoc.org/github.com/josmo/drone-netapp-snapshot?status.svg)](http://godoc.org/github.com/josmo/drone-netapp-snapshot)
 [![Go Report](https://goreportcard.com/badge/github.com/josmo/drone-netapp-snapshot)](https://goreportcard.com/report/github.com/josmo/drone-netapp-snapshot)
 [![](https://images.microbadger.com/badges/image/peloton/drone-netapp-snapshot.svg)](https://microbadger.com/images/peloton/drone-netapp-snapshot "Get your own image badge on microbadger.com")
@@ -43,4 +43,3 @@ This repo is setup in a way that if you enable a personal drone server to build 
  
 * Build local ```DRONE_REPO_OWNER=josmo DRONE_REPO_NAME=drone-netapp-snapshot drone exec```
 * on your server just make sure you have DOCKER_USERNAME, DOCKER_PASSWORD, and PLUGIN_REPO set as secrets
- 
